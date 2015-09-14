@@ -5,7 +5,13 @@ header {
 	font-weight:'extra-bold';
 	font-size:24px;
 	padding:50px;
+
 }
+
+/*div {
+	padding:0px 0px 100px 0px;*/
+}
+
 
 h1 {
 	text-align:left;
@@ -19,6 +25,7 @@ h3 {
 	color:#033048;
 	font-size: 20px;
 }
+
 
 button {
 	color: #033048;
@@ -36,6 +43,8 @@ button {
 	border: none;
 	background-color: #f9e42e;
   -webkit-border-radius: 5px;
+  	font-size:14px;
+  	font-style:bold;
 }
 
 .button2 {
@@ -50,10 +59,33 @@ section {
 	font-weight: lighter;
 }
 
+.testimonial {
+	background-image:url(../images/testimonial_bg.jpg);
+	text-align:center;
+	color: #FFFFFF;
+}
+
+
+#section2 {
+	font-style:italic;
+	text-align:center;
+}
+
+#section3 {
+	font-size:20px;
+	font-style:bold;
+}
+
 p.footer {
 	color: #f9e42e;
 	text-align:center;
 	font-family: ‘Open Sans’, sans-serif; 
 	font-size:24px;
-	font-style:bold;
+
+}
+
+footer {
+	text-align:center;
+	background-color: #424242;
+	color: #FFFFFF;
 }
