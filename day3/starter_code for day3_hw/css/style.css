@@ -50,6 +50,7 @@ button {
   -webkit-border-radius: 5px;
   	font-size:14px;
   	font-weight:bold;
+  -webkit-box-shadow: 10px 10px 5px #888888;
   
 }
 
@@ -80,6 +81,12 @@ ul {
 
 	font-family: 'Open Sans', sans-serif;
 	font-weight:300;
+
+}
+
+ul li:nth-child(even) {  
+  	font-weight:900;
+
 }
 
 .testimonial {
