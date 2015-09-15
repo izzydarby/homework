@@ -1,0 +1,39 @@
+header {
+
+	text-align:center;
+	font-size:20px;
+	border: 1px solid #333;
+	background-color: #d3d3d3;
+	padding:50px;
+
+}
+
+
+
+
+p {
+	border: 1px solid #333;
+	background-color:#d3d3d3;
+	width: 48%;
+	padding: 200px 0px;
+
+}
+
+.float-right {
+	float: right;
+	width:43%;
+}
+
+.float-left {
+	float: left; 
+	width: 55%;
+}
+
+footer {
+	clear:both;
+	text-align:center;
+	font-size:20px;
+	border: 1px solid #333;
+	background-color: #d3d3d3;
+	padding: 50px;
+}
