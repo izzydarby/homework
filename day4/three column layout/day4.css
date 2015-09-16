@@ -9,25 +9,51 @@ header {
 }
 
 
-
-
 p {
 	border: 1px solid #333;
 	background-color:#d3d3d3;
-	width: 48%;
+	width: 32%;
 	padding: 200px 0px;
 
 }
 
-.float-right {
-	float: right;
-	width:43%;
+#container {
+    width: 960px;
+    margin: 0 auto;
+ 
+
 }
 
-.float-left {
-	float: left; 
-	width: 55%;
+#column-left {
+	float: left;
+	text-align:center;
+	width: 20%;
+	padding-right: 40px;
+	border-right:50px;
+
 }
+
+#column-middle {
+	display: inline-block;
+	float: left;
+	text-align:center;
+	width: 49%;
+	padding-left: 40px;
+/*	width: 30%;*/
+	/*padding: 10px 20px;*/
+}
+
+#column-right {
+	float: right;
+	text-align:center;
+	width: 20%;
+}
+
+/*#pagewrap {
+	padding: 5px;
+	width: 960px;
+	margin: 20px auto;
+}*/
 
 footer {
 	clear:both;
