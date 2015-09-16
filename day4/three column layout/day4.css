@@ -28,8 +28,8 @@ p {
 	float: left;
 	text-align:center;
 	width: 20%;
-	padding-right: 40px;
-	border-right:50px;
+/*	padding-right: 40px;
+	border-right:50px;*/
 
 }
 
@@ -37,10 +37,9 @@ p {
 	display: inline-block;
 	float: left;
 	text-align:center;
-	width: 49%;
+	width: 48%;
 	padding-left: 40px;
-/*	width: 30%;*/
-	/*padding: 10px 20px;*/
+	margin: 15px 5px 0px 35px;
 }
 
 #column-right {
