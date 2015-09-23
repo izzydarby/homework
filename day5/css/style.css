@@ -125,10 +125,10 @@ p {
   text-decoration: none;
 }
 
-span {
-  font-size:40px;
+.firstletter {
+  font-size:50px;
   float: left;
-  padding: 0px 5px 2px 0px;
+  padding: 0px 10px 2px 0px;
 }
 
 
