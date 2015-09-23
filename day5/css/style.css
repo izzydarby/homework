@@ -9,9 +9,7 @@ header {
 
 h1 {
   padding-left: 60px;
-  padding-top: 19px;
   float: left;
-  border: 1px solid red;
 }
 
 
@@ -58,6 +56,7 @@ p {
 .traveled {
   width: 700px;
   margin-left: 60px;
+  padding-bottom: 70px;
 }
 
 .float-right {
@@ -71,7 +70,6 @@ p {
   font-weight: 300;
   font-color: #033048;
   font-size: 24px;
-  border: 1px solid red;
   width: 240px;
 }
 .float-right.h3 {
@@ -95,7 +93,20 @@ p {
 
 .float-right-2.h3 {
   font-weight: 800;
-    font-size:32px;
+  font-size:32px;
+
+}
+
+#ad-box {
+    border-color: #FFFFFF;
+    height: 540px;
+    width: 240px;
+    background-color: #FFFFFF;
+    text-align: center;
+    color: #033048;
+    font-size: 40px;
+    font-weight: 700;
+    padding-top:10px;
 
 }
 
@@ -112,26 +123,19 @@ p {
   text-align: right;
   padding-bottom: 20px;
   text-decoration: none;
-
 }
-
 
 span {
   font-size:40px;
   float: left;
   padding: 0px 5px 2px 0px;
-
 }
-
-
 
 
 a:link {
     text-decoration: none;
     color: #033048;
 }
-
-
 
 a:hover {
     text-decoration: underline;
@@ -143,8 +147,7 @@ a:hover {
   background-color: #f9e42e;
   height: 115px;
   text-align: center;
-  padding-top:20px;
-
+  padding-top:30px;
 }
 
 button {
@@ -156,7 +159,7 @@ button {
     font-size: 20px;
     height:60px;
     width: 300px;
-    box-shadow: none;
+    border: none;
     -webkit-border-radius: 7px;
 }
 
@@ -165,6 +168,7 @@ footer {
     color: #f9e42e;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+    height: 340px;
     
 }
 
@@ -172,11 +176,16 @@ footer {
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
+    height: 40px;
+}
 
+img {
+  padding-right: 30px;
 }
 
 .footer {
-
+    font-size: 18px;
+    color: #FFFFFF;
 
 }
 
