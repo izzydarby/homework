@@ -17,60 +17,62 @@
 
 <p>Play with javascript pop-ups.</p>
 
-<script>
+<script src="index.js">
 
-// user select rocks, paper or scissors by a prompt
-function getUserChoice(){
-	var userSelection = prompt("Do you choose rock, paper or scissors?");
-	return userSelection;
-}
+// <script>
 
-// computer randomly selects rock paper or scissors
-function getComputerChoice(){
-	var computerSelection = Math.random();
-	if (computerSelection < 0.34) {
-	    computerSelection = "rock";
-	} else if(computerSelection <= 0.67) {
-	    computerSelection = "paper";
-	} else {
-	    computerSelection = "scissors";
-	}
-	return computerSelection;
-}
+// // user select rocks, paper or scissors by a prompt
+// function getUserChoice(){
+// 	var userSelection = prompt("Do you choose rock, paper or scissors?");
+// 	return userSelection;
+// }
 
-// The getWinner function accepts two arguments.
+// // computer randomly selects rock paper or scissors
+// function getComputerChoice(){
+// 	var computerSelection = Math.random();
+// 	if (computerSelection < 0.34) {
+// 	    computerSelection = "rock";
+// 	} else if(computerSelection <= 0.67) {
+// 	    computerSelection = "paper";
+// 	} else {
+// 	    computerSelection = "scissors";
+// 	}
+// 	return computerSelection;
+// }
 
-function getWinner(computerSelection, userSelection){
-	// Enter code here so that the getWinner function returns "User", "Computer", or "Tie"
+// // The getWinner function accepts two arguments.
 
-if (computerSelection === "rock" && userSelection == "scissors") {
-	return "Computer Wins";
-} else if (computerSelection === "paper" && userSelection == "rock") {
-	return "Computer Wins";
-} else if (computerSelection === "scissors" && userSelection == "paper") {
-	return "Computer Wins";
-} else if (computerSelection === "scissors" && userSelection == "rock") {
-	return "User Wins";
-} else if (computerSelection === "paper" && userSelection == "scissors") {
-	return "User Wins";
-} else if (computerSelection === "rock" && userSelection == "paper") {
-	return "User Wins"
-}else {
-	return "Tie";
-	}
-}
+// function getWinner(computerSelection, userSelection){
+// 	// Enter code here so that the getWinner function returns "User", "Computer", or "Tie"
 
-function playGame(){
-	var userChoice = getUserChoice();
-	var computerChoice = getComputerChoice();
-	var winner = getWinner(computerChoice, userChoice);
-	alert("And the winner is..." + winner);
-}
+// if (computerSelection === "rock" && userSelection == "scissors") {
+// 	return "Computer Wins";
+// } else if (computerSelection === "paper" && userSelection == "rock") {
+// 	return "Computer Wins";
+// } else if (computerSelection === "scissors" && userSelection == "paper") {
+// 	return "Computer Wins";
+// } else if (computerSelection === "scissors" && userSelection == "rock") {
+// 	return "User Wins";
+// } else if (computerSelection === "paper" && userSelection == "scissors") {
+// 	return "User Wins";
+// } else if (computerSelection === "rock" && userSelection == "paper") {
+// 	return "User Wins"
+// }else {
+// 	return "Tie";
+// 	}
+// }
 
-// // Uncomment the line below and the game will play
-playGame();
+// function playGame(){
+// 	var userChoice = getUserChoice();
+// 	var computerChoice = getComputerChoice();
+// 	var winner = getWinner(computerChoice, userChoice);
+// 	alert("And the winner is..." + winner);
+// }
 
-  </script>
+// // // Uncomment the line below and the game will play
+// playGame();
+
+ </script>
 
 </body>
 
