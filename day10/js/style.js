@@ -18,11 +18,11 @@ $("#submit-btn").change(function(event){
 		var city = $('#submit-btn').val();
 
 //set if else statements
-	if (city === "new york" || city == "new york city" || city ==="nyc"){
+	if (city === "new york" || city === "new york city" || city ==="nyc"){
 
 		$('body').removeClass().addClass("nyc");
 
-	} else if (city === "san francisco" || city == "sf"){
+	} else if (city === "san francisco" || city === "sf"){
 
 	 	$('body').removeClass().addClass("sf");
 
@@ -32,17 +32,20 @@ $("#submit-btn").change(function(event){
 	
 	} else if (city === "sydney" || city === "syd"){
 
-	 	$('body').removeClass().addClass()("sydney");
+	 	$('body').removeClass().addClass("sydney");
 	
 	} else if (city === "austin" || city === "atx"){
 
-	 	$('body').removeClass().addClass()("austin");
+	 	$('body').removeClass().addClass("austin");
+
 	}	else {
+		$('body').removeClass();
+
 // if none of those cities return for other
 		""
 
 	};
-	$("entry")[5].reset();
+	// $("entry")[0].reset();
 
 };
 
