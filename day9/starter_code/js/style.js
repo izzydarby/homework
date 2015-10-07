@@ -1,4 +1,4 @@
-
+//make sure all HTML has loaded
 $(document).ready(function() {
 
 
@@ -16,6 +16,10 @@ $("#submit-btn").click(function(event){
 	
 	function changeBackground(){
 		var city = $('#city-type').val();
+
+//get the value to be all lowercase and no space on either side
+city = city.toLowerCase().trim();
+
 
 //set if else statements
 	if (city === "new york" || city == "new york city" || city ==="nyc"){
