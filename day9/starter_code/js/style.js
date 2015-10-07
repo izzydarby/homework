@@ -1,33 +1,48 @@
-//user inputs keyword
+$(document).ready(function() {
 
-var city = val().toLowerCase();
 
 // get the string value of user's input
-$( "submit-btn" ).click(function() {
-  var text = $( this ).text();
-  $( "input" ).val( text );
-});
 
-//return image based off of input
-	if(city = "New York") {
-		console.log("New York")
-		background-image src
-	}
-	else if { 
-		(city = "Sydney")
-		console.log("Sydney");
-	}
-	else if { 
-		(city = "Los Angeles")
-		console.log("Los Angeles");
-	}
-	else if { 
-		(city = "San Francisco")
-		console.log("San Francisco");
-	}
-	else if { 
-		(city = "Austin")
-		console.log("Austin");
-	}
+$("#submit-btn").click(function(event){
+//stop doing the background it would normally do and change the background to what we want
+	event.preventDefault();
+	changeBackground();
+
+});
+//set if else statement
+
+//if input = city, set body class to city name
+	
+	function changeBackground(){
+		var city = $('#city-type').val();
+
+
+	if (city === "new york" || city == "new york city" || city ==="nyc"){
+
+		$('body').removeClass().addClass("nyc");
+
+	} else if (city === "san francisco" || city == "sf"){
+
+	 	$('body').removeClass().addClass("sf");
+
+	} else if (city === "los angeles" || city === "la"){
+
+	 	$('body').removeClass().addClass("la");
+	
+	} else if (city === "sydney" || city === "syd"){
+
+	 	$('body').removeClass().addClass()("sydney");
+	
+	} else if (city === "austin"){
+
+	 	$('body').removeClass().addClass()("austin");
+	}	else {
+// if none of those cities return for other
+		""
+
+	};
+	$("entry")[0].reset();
 
 };
+
+	});
