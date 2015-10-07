@@ -32,11 +32,11 @@ $("#submit-btn").click(function(event){
 	
 	} else if (city === "sydney" || city === "syd"){
 
-	 	$('body').removeClass().addClass()("sydney");
+	 	$('body').removeClass().addClass("sydney");
 	
 	} else if (city === "austin" || city === "atx"){
 
-	 	$('body').removeClass().addClass()("austin");
+	 	$('body').removeClass().addClass("austin");
 	}	else {
 // if none of those cities return for other
 		""
