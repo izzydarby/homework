@@ -1,0 +1,63 @@
+/*
+Project Name: Veganizer
+Author: Izzy Darby
+Front End Web Development General Assembly 2015 Boston
+*/
+
+h1 {
+	text-align:center;
+
+}
+
+
+body {
+	font-family: arial;
+
+}
+
+
+.header-li {
+  float: right;
+  color: #f9e42e;
+  padding: 23px;
+  list-style-type: none;
+}
+
+#submit-prompt {
+	font-size: 30px;
+	font-family: arial;
+	text-align:center;
+
+} 
+
+
+#input {
+	text-align: center;
+	border: 1px red solid;
+	width: 600px;
+	height: 400px;
+	margin: 0px 0px 0px 300px;
+	padding: 20px;
+}
+
+#submit-btn {
+/*  background: #ffe500;
+  color: #000;*/
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid #111;
+  text-align: center;
+  display: inline-block;
+  width: 250px;
+  height: 72px;
+  line-height: 74px;
+  vertical-align: middle;
+  /* box-shadow: #111 0 0 50px;*/
+  font-family: helvetica, arial, sans-serif;
+  cursor: pointer;
+}
+
+#submit-btn:hover {
+  background: #FFFFFF;
+}
