@@ -1,19 +1,31 @@
-$(document).ready(function){
+$(document).ready(function(){
 
-var ingredient = prompt("What do you want to replace","Type the ingredient here");
 
-switch(indredient){
-  case 'egg':
-    console.log("How many eggs?");
-    break;
-  case 'milk':
-    console.log("How much milk?");
-    break;
-  case 'butter':
-    console.log("How much butter?");
-    break;
-  default:
-    console.log("Hmmm, I'm not sure what " + ingredient + " is. Enter a different ingredient.");
-}
+$('.mobile-menu').click(function(){
+	$('nav ul').toggleClass('open');	
+		})
 
-};
+});
+
+
+//get the value of the input with jQuery. target the input id .val
+
+	$('#form').submit(function(event){
+		event.preventDefault();
+
+		var userAnswer = $('input').val().toLowerCase(); 
+			console.log(userAnswer);
+
+
+		if (userAnswer === "eggs" || userAnswer==="egg") {
+		 $('.question').html("how many?");
+
+		} else if (userAnswer === "milk") {
+		 $('.question').html("how much?");
+
+		} else if (userAnswer === "butter") {
+		 $('.question').html("how much?");
+				}
+	});
+
+	
