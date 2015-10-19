@@ -6,15 +6,12 @@ Front End Web Development General Assembly 2015 Boston
 
 h1 {
 	text-align:center;
-
 }
 
 
 body {
 	font-family: arial;
-
 }
-
 
 .header-li {
   float: left;
@@ -22,29 +19,43 @@ body {
   list-style-type: none;
   padding: 15px 30px;
   border: 1px solid #000;
-
 }
 
-.container {
-	clear: left;
-	
+.ingredients {
+	clear:both;
+	width: 100%;
+}
 
+#eggs {
+	float: left;
+	border: 1px solid black;
+	width: 30%;
+}
+
+#butter {
+	clear: both;
+	float:left;
+	border: 1px solid black;
+	width: 30%;
+}
+
+#milk {
+	clear: both;
+	float:left;
+	border: 1px solid black;
+	width: 30%;
 }
 
 #submit-prompt {
 	font-size: 30px;
 	font-family: arial;
 	text-align:center;
-
 } 
 
-
 #input {
+	float: right;
 	text-align: center;
-	width: 600px;
-	height: 400px;
-	margin: 0px 0px 0px 300px;
-	padding: 20px;
+	width:30%;
 }
 
 #submit-btn {
