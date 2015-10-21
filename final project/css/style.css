@@ -4,14 +4,18 @@ Author: Izzy Darby
 Front End Web Development General Assembly 2015 Boston
 */
 
+*  {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+
+	}
+
 h1 {
-	text-align:center;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 500;
+	text-align: center;
 }
 
-
-body {
-	font-family: arial;
-}
 
 .header-li {
   float: left;
@@ -21,58 +25,60 @@ body {
   border: 1px solid #000;
 }
 
-.ingredients {
-	clear:both;
-	width: 100%;
-}
-
-#eggs {
-	float: left;
-	border: 1px solid black;
-	width: 30%;
-}
-
-#butter {
-	clear: both;
-	float:left;
-	border: 1px solid black;
-	width: 30%;
-}
-
-#milk {
-	clear: both;
-	float:left;
-	border: 1px solid black;
-	width: 30%;
-}
-
 #submit-prompt {
-	font-size: 30px;
-	font-family: arial;
+	font-size: 30px;	
 	text-align:center;
 } 
 
+.ingredients img {
+	/*clear:both;
+	*/
+	min-width: 100px;
+	min-height: 100px;
+	max-width: 200px;
+	max-height: 200px;
+}
+
+#eggs {
+	display: inline-block;
+	width: 20%;
+}
+
+#butter {
+	display: inline-block;
+	width: 20%;
+}
+
+#milk {
+	display: inline-block;
+	width: 20%;
+}
+
+
+
 #input {
-	float: right;
+	display: inline-block;
 	text-align: center;
 	width:30%;
 }
 
+input {
+	width: 75%;
+	height: 40px;
+
+}
+
+.button {
+
+	padding:25px;
+
+}
 #submit-btn {
-/*  background: #ffe500;
-  color: #000;*/
-  font-size: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: 1px solid #111;
+  font-size:24px;
   text-align: center;
-  display: inline-block;
   width: 250px;
-  height: 72px;
-  line-height: 74px;
-  vertical-align: middle;
-  /* box-shadow: #111 0 0 50px;*/
-  font-family: helvetica, arial, sans-serif;
+  height: 55px;
+  border:10px;
   cursor: pointer;
 }
 
@@ -80,9 +86,11 @@ body {
   background: #FFFFFF;
 }
 
-nav .mobile-menu {
-	display: none;
+.button-question {
+	font-size:16px;
+
 }
+
 
 .mobile-menu {
 	display: none;
@@ -91,6 +99,9 @@ nav .mobile-menu {
 	padding-bottom: 30px;
 }
 
+nav .mobile-menu {
+	display: none;
+}
 
 /*Media Queries */
 @media only screen and (max-width: 500px) {
