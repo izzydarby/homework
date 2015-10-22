@@ -29,10 +29,60 @@ $('.activate-search').click(function(e) {
 	}
 });
 
-//4. 
+//4. get the value of the input with jQuery. target the input id .val
+
+//5. 
+
+$('#submit-btn').click(function() {
+	console.log('click firing')
+	$('.results-box').removeClass('hide');
+
+	//get the value of the input text
+	//if the select dropdown isn't hidden you have to get that value
+	//take those 3 values and pass into a function that returns a result
+	var result = calculateIngredients();
+	//update the text of the results box with that
+
+});
 
 
-//get the value of the input with jQuery. target the input id .val
+
+
+function calculateIngredients(ingredient, num, unit){
+	num = $("input[id='weight']").val(),
+    unit1 = $("option[value='teaspoon']").val(),
+    unit2 = $("option[value='teaspoon']").val(),
+    unit3 = $("option[value='cups']").val(),
+    result = (num1*num2);
+
+
+	return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	var howMuch = $("input[name='howMuch']").val();
 
