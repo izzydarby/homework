@@ -16,16 +16,42 @@ h1 {
 	text-align: center;
 }
 
-
+header {
+	  border-bottom: 1px solid #e5e5e5;
+	  padding-bottom:25px;
+}
 .header-li {
-  float: left;
-  color: #f9e42e;
-  list-style-type: none;
-  padding: 15px 30px;
-  border: 1px solid #000;
+	  float: left;
+	  list-style-type: none;
+	  padding: 15px 30px;
+	  border: 1px solid #000;
+	  margin: 1px;
+	  moz-border-radius: 5px;
+	  -webkit-border-radius: 2px;
+	  color: #FFFFFF;
+	
+
+/*    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+*/
 }
 
+.header-link {
+	  text-decoration: none;
+	  color: black;
+}
+
+.header-li:hover {
+	  background: #D0D0D0;
+	  text-decoration: none;
+}
+
+
 #submit-prompt {
+	padding-top:25px;
 	font-size: 30px;	
 	text-align:center;
 } 
@@ -83,7 +109,7 @@ input {
 
 }
 .button #submit-btn {
-  font-size:22px;
+  font-size:18px;
   text-align: center;
   width: 250px;
   height: 55px;
