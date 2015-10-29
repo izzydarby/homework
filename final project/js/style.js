@@ -84,51 +84,49 @@ $(document).ready(function(){
 
 				],
 		};
-		var userInput = $("input.button-question").val();
-		console.log('click firing')
+
+
+		// var userInput = $("input.button-question").val();
+		// console.log('click firing')
 
 		// JQUERY get value of radio button 
 
-		var radioSelect = $('input:radio[name=radio-button]').val();
-		console.log(radioSelect);
+		// var radioSelect = $('input:radio[name=radio-button]').val();
+		// console.log(radioSelect);
 		
-		// IF check if butter or milk or eggs
+		// // IF check if butter or milk or eggs
 
-		if (radioSelect === "eggs") {
-		$('.results-box').text(convertToEggs(userInput, substitutes));
-		} else if (radioSelect === "milk") {
-		// ELSE IF
-		$('.results-box').text(convertToButter(userInput, substitutes));
-		} else {
-		// ELSE
-		$('.results-box').text(convertToMilk(userInput, substitutes));
-
-		}
+		// if (radioSelect === "eggs") {
+		// 	$('.results-box').text(convertToEggs(userInput, substitutes));
+		// } else if (radioSelect === "milk") {
+		// 	// ELSE IF
+		// 	$('.results-box').text(convertToButter(userInput, substitutes));
+		// } else {
+		// 	// ELSE
+		// 	$('.results-box').text(convertToMilk(userInput, substitutes));
+		// }
 	
 		//get the value of the input text
 		//if the select dropdown isn't hidden you have to get that value
 		//take those 3 values and pass into a function that returns a result
 		var result = calculateIngredients();
-			console.log(result);
-			
 
+		// this gives you the three values you need
+		var selectedIngredient = result[2];
+		var selectedUnit = result[1];
+		var selectedValue = result[0];
 
-		//update the text of the results box with that
-
-
-		for (var i = 0; i < result.length; i++) {
-		   	if (result[2] === "eggs") {
-		   			console.log("eggs");
-		   	} else if (result[2] === "milk") {
-		   			console.log("milk"); 
-		   	} else { 
-		   			console.log("butter");
-
-		   	
-
-
+		console.log(selected);
+	
+		if(selectedIngredient === 'eggs') {
+		 	$('.results-box').text(convertToEggs(selectedValue, substitutes));
+		} else if (selectedIngredient === 'milk') {
+			$('.results-box').text(convertToMilk(selectedValue, substitutes));
+		} else {
+		   	$('.results-box').text(convertToButter(selectedValue, substitutes));
 		}
-	}
+		
+	});
 
 
 
@@ -267,10 +265,10 @@ $(document).ready(function(){
 	function calculateIngredients(){
 		var num = $("input.button-question").val();
 	    var unit = $("select#select-measurement").val();
-	    var noUnit = $("input[name='radio-button']:checked").val();
+	    var ingredient = $("input[name='radio-button']:checked").val();
 
 
-	    return [num, unit, noUnit];
+	    return [num, unit, ingredient];
 
 
 	}
