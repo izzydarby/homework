@@ -116,7 +116,7 @@ $(document).ready(function(){
 		var selectedUnit = result[1];
 		var selectedValue = result[0];
 
-		console.log(selected);
+		console.log(selectedValue, selectedUnit, selectedIngredient);
 	
 		if(selectedIngredient === 'eggs') {
 		 	$('.results-box').text(convertToEggs(selectedValue, substitutes));
@@ -125,8 +125,6 @@ $(document).ready(function(){
 		} else {
 		   	$('.results-box').text(convertToButter(selectedValue, substitutes));
 		}
-		
-	});
 
 
 
@@ -134,7 +132,7 @@ $(document).ready(function(){
 
 		// create an array to hold all of the egg substitutes
 		var eggSubstitutes = [];
-		debugger;
+		
 		// loop through all of the egg substitutes
 		for (var i =  0; i < substitutes.egg.length; i++) {
 			
