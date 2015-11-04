@@ -17,7 +17,6 @@ h1 {
 }
 
 header {
-	  border-bottom: 1px solid #e5e5e5;
 	  padding-bottom:25px;
 }
 .header-li {
@@ -31,7 +30,7 @@ header {
 	  color: #FFFFFF;
 	
 
-/*    -webkit-margin-before: 1em;
+/*  -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
@@ -47,6 +46,7 @@ header {
 .header-li:hover {
 	  background: #D0D0D0;
 	  text-decoration: none;
+
 }
 
 
@@ -56,13 +56,18 @@ header {
 	text-align:center;
 } 
 
+
 .ingredients img {
-	/*clear:both;
-	*/
-	min-width: 100px;
-	min-height: 100px;
-	max-width: 200px;
-	max-height: 200px;
+	min-width: 100%;
+	min-height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+
+}
+
+.activate-search:hover {
+	border: 2px solid red;
+	border-radius: 100px;
 }
 
 #eggs {
@@ -85,28 +90,39 @@ header {
 #input {
 	display: inline-block;
 	text-align: center;
-	width:30%;
+	width:25%;
+	height:30%;
 }
 
 input {
-	width: 75%;
+	width: 50%;
 	height: 40px;
+	border: 1px solid black;
 
 }
 
+.error{
+	color: red;
+
+}
 .hide {
 	display: none;
 }
 
 
-#search-box {
+#select-measurement {
+	-webkit-appearance:none;
+	font-size: 18px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 2px
 
 }
 
 .button {
 	padding:25px;
-
-
+/*	border: 1px solid black;
+*/
 }
 .button #submit-btn {
   font-size:18px;
@@ -115,7 +131,7 @@ input {
   height: 55px;
   border:10px;
   cursor: pointer;
-  	border-radius:10px;
+  border-radius:10px;
 }
 
 .button #submit-btn:hover {
@@ -127,6 +143,10 @@ input {
 
 }
 
+.results-box {
+	font-size:20px;
+
+}
 
 .mobile-menu {
 	display: none;

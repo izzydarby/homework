@@ -1,27 +1,23 @@
 $(document).ready(function(){
 
-
+	//on click of the mobile menu, show the list items
 	$('.mobile-menu').click(function(){
 		$('nav ul').toggleClass('open');	
 			})
 
 	});
 
-//1. Hide Button
 
-//2. on click of any of the icons, remove the hide class
-
-//3. on click of an icon show search
-
-
+	// BEGIN TOOL
+	// Step 1: On click of icons, show search button and reset question value
 	$('.activate-search').click(function(e) {
 		var icon = $(this).attr('id');
 		
 		$('#search-box').removeClass('hide');
 		$('.button-question').val('');
 
-			//if the icon is eggs do one thing if it's not do something else
 
+		//if the icon is eggs, ask the question how many. if it's milk or butter, ask how much
 		if (icon === "eggs") {
 			//switch the default text in the input
 			//update the options in the dropdown
@@ -33,79 +29,11 @@ $(document).ready(function(){
 		}
 	});
 
-//4. get the value of the input with jQuery. target the input id .val
 
-
+	// Step 2: Submit button click
 	$('#submit-btn').click(function(event) {
 		event.preventDefault();
 
-		var substitutes = {
-			egg: [
-				{ 
-					"1": "tablespoon(s) flax seed",
-					"3": "tablespoons water"
-				},
-				{
-					"3": "tablespoons applesauce or pureed fruit, such as banana"
-				},
-				{	"3": "tablespoons aquafaba (aka chickpea liquid)"
-
-				},
-				{	"2": "tablespoons potato starch"
-
-				}
-
-				],
-
-			milk: [
-				{
-					"1":"tablespoon(s) almond milk, coconut milk, hemp milk, etc"
-				},	
-
-				{
-					"1":"tablespoon(s) full-fat soy milk (replacing whole milk)"
-				},
-				{
-					"1": "tablespoon(s) water"
-				}
-				
-				],
-
-			butter: [
-				{
-					"1":"tablespoon(s) solid coconut oil"
-				},
-				{
-					"1":"tablespoon(s) Earth Balance or other vegan shortening (cookies and pie crusts)"
-				},
-				{
-					"1":"tablespoon(s) olive oil (in spicy baking, like gingerbread)"
-				},
-
-				],
-		};
-
-
-		// var userInput = $("input.button-question").val();
-		// console.log('click firing')
-
-		// JQUERY get value of radio button 
-
-		// var radioSelect = $('input:radio[name=radio-button]').val();
-		// console.log(radioSelect);
-		
-		// // IF check if butter or milk or eggs
-
-		// if (radioSelect === "eggs") {
-		// 	$('.results-box').text(convertToEggs(userInput, substitutes));
-		// } else if (radioSelect === "milk") {
-		// 	// ELSE IF
-		// 	$('.results-box').text(convertToButter(userInput, substitutes));
-		// } else {
-		// 	// ELSE
-		// 	$('.results-box').text(convertToMilk(userInput, substitutes));
-		// }
-	
 		//get the value of the input text
 		//if the select dropdown isn't hidden you have to get that value
 		//take those 3 values and pass into a function that returns a result
@@ -117,193 +45,232 @@ $(document).ready(function(){
 		var selectedValue = result[0];
 
 		console.log(selectedValue, selectedUnit, selectedIngredient);
-	
-		if(selectedIngredient === 'eggs') {
-		 	$('.results-box').text(convertToEggs(selectedValue, substitutes));
-		} else if (selectedIngredient === 'milk') {
-			$('.results-box').text(convertToMilk(selectedValue, substitutes));
-		} else {
-		   	$('.results-box').text(convertToButter(selectedValue, substitutes));
+
+		// before calculting substitues, convert to tablespoons
+		if((selectedUnit != 'tablespoons') && (selectedIngredient != 'eggs')) {
+			var result = convertToTablespoons(selectedUnit, selectedValue);
+			console.log(result);
+			selectedValue = result;
+			selectedUnit = 'tablespoons';
 		}
 
 
+		if (isNaN(selectedValue) === true) {
+			$('.results-box').text("please enter a number");
+			$('.results-box').css('color','red');
 
-	function convertToEggs(num, substitutes){
-
-		// create an array to hold all of the egg substitutes
-		var eggSubstitutes = [];
-		
-		// loop through all of the egg substitutes
-		for (var i =  0; i < substitutes.egg.length; i++) {
-			
-			// create an array to store the groups of substitutes
-			var tempArray = [];
-
-			// loop through each group of substitutes
-			for (var key in substitutes.egg[i]) {
-			  
-			  
-				// checks if it has the key
-			  if (substitutes.egg[i].hasOwnProperty(key)) {
-
-			  	// parse key to num and multiply by user's input
-			  	var subs = parseInt(key) * num;
-			  	
-			  	// add measurement and ingredient to updated number
-			  	var withMeasurement = subs + substitutes.egg[i][key];
-				
-				// add measurement to temp array
-				tempArray.push(withMeasurement); 
-			  	
-			  }
-			}
-
-			// add temp array to egg substitute array
-			eggSubstitutes.push(tempArray);
-
-		};
-
-		// return eggSubstitutes array
-		return eggSubstitutes // an array of egg substittues
-	}
-
-
-
-
-
-
-
-	function convertToButter (num, substitutes){
-		// create an array to hold all of the butter substitutes
-		var butterSubstitutes = [];
-
-		// loop through all of the butter substitutes
-		for (var i =  0; i < substitutes.butter.length; i++) {
-			
-			// create an array to store the groups of butter substitutes
-			var tempArray = [];
-
-			// loop through each group of substitutes
-			for (var key in substitutes.butter[i]) {
-			  
-			  
-				// checks if it has the key
-			  if (substitutes.butter[i].hasOwnProperty(key)) {
-
-			  	// parse key to num and multiply by user's input
-			  	var subs = parseInt(key) * num;
-			  	
-			  	// add measurement and ingredient to updated number
-			  	var withMeasurement = subs + substitutes.butter[i][key];
-				
-				// add measurement to temp array
-				tempArray.push(withMeasurement); 
-			  	
-			  }
-			}
-
-			// add temp array to butter substitute array
-			butterSubstitutes.push(tempArray);
-
-		};
-
-
-		return butterSubstitutes// an array of butter substitutes
-	}
-
-
-
-
-
-
-
-
-	function convertToMilk (num, substitutes){
-
-		// create an array to hold all of the milk substitutes
-		var milkSubstitutes = [];
-
-		// loop through all of the milk substitutes
-		for (var i =  0; i < substitutes.milk.length; i++) {
-			
-			// create an array to store the groups of substitutes
-			var tempArray = [];
-
-			// loop through each group of milk substitutes
-			for (var key in substitutes.milk[i]) {
-			  
-			  
-				// checks if it has the key
-			  if (substitutes.milk[i].hasOwnProperty(key)) {
-
-			  	// parse key to num and multiply by user's input
-			  	var subs = parseInt(key) * num;
-			  	
-			  	// add measurement and ingredient to updated number
-			  	var withMeasurement = subs + substitutes.milk[i][key];
-				
-				// add measurement to temp array
-				tempArray.push(withMeasurement); 
-			  	
-			  }
-			}
-
-			// add temp array to egg substitute array
-			milkSubstitutes.push(tempArray);
-
-		};
-		return milkSubstitutes // an array of milk subs
-	}
-
-
-
-
-
-
-	function calculateIngredients(){
-		var num = $("input.button-question").val();
-	    var unit = $("select#select-measurement").val();
-	    var ingredient = $("input[name='radio-button']:checked").val();
-
-
-	    return [num, unit, ingredient];
-
-
-	}
-
+		} else if (selectedIngredient === 'eggs') {
+		 	$('.results-box').html(convertToEggs(selectedValue, substitutes));
+		} else if (selectedIngredient === 'milk') {
+			$('.results-box').html(convertToMilk(selectedValue, substitutes));
+		} else {
+			$('.results-box').html(convertToButter(selectedValue, substitutes));
+		}
 
 });
 
+//store what substitutes to use later on
+var substitutes = {
+	egg: [
+		{ 
+			"1": " tablespoon(s) flax seed",
+			"3": " tablespoons water"
+		},
+		{
+			"3": " tablespoons applesauce or pureed fruit, such as banana"
+		},
+		{	"3": " tablespoons aquafaba (aka chickpea liquid)"
+
+		},
+		{	"2": " tablespoons potato starch"
+
+		}
+
+		],
+
+	milk: [
+		{
+			"1":" tablespoon(s) almond milk, coconut milk, hemp milk, etc"
+		},	
+
+		{
+			"1":" tablespoon(s) full-fat soy milk (replacing whole milk)"
+		},
+		{
+			"1": " tablespoon(s) water"
+		}
+		
+		],
+
+	butter: [
+		{
+			"1":" tablespoon(s) solid coconut oil"
+		},
+		{
+			"1":" tablespoon(s) Earth Balance or other vegan shortening (cookies and pie crusts)"
+		},
+		{
+			"1":" tablespoon(s) olive oil (in spicy baking, like gingerbread)"
+		},
+
+		],
+};
+
+//this is converting either teaspoons or cups to tablespoons. the first value you pass in should be the unit and the second is how much to convert. math.round rounds to the nearest interger
 
 
+function convertToTablespoons (unit, value) {
+	//if it's teaspoons do something
+	var result;
+	if (unit === "teaspoons") {
+		result = value / 3;
+	}
+	//if it's cups do something
+	if (unit === "cups") {
+		result = value * 16;
+	}
 
-//5. if the variable result is equal to butter, calculate num * substitution numb (e.g. 2 * 1/2 teaspoon) and apply the correct unit
+	return Math.round(result);
+}
 
-
-
-
-
-
-// for (var i = 0; i < result.length; i++) {
-//    	if (result[0] === 2) {
-//    			return("eggs");
-//    	} else if (result[2] === "milk") {
-//    			console.log("milk"); 
-//    	} else { 
-//    			console.log("butter");
-
-   	
-
-
-// }
-
-
-
+function formatResult (array){
+	var conversionResult='';
+	for (var i = 0; i < array.length; i++){
+		conversionResult += "<br />" + array[i] + "<br />" + "<span>or</span>" + "<br />";
+	}
+	return conversionResult;
+}
 
 
+function convertToEggs(num, substitutes){
+
+	// create an array to hold all of the egg substitutes
+	var eggSubstitutes = [];
+	
+	// loop through all of the egg substitutes
+	for (var i =  0; i < substitutes.egg.length; i++) {
+		
+		// create an array to store the groups of substitutes
+		var tempArray = [];
+
+		// loop through each group of substitutes
+		for (var key in substitutes.egg[i]) {
+
+			// add logic to determine how many are in this group,
+			// then add plus sites after each one but the last
+	
+			// checks if it has the key
+		  if (substitutes.egg[i].hasOwnProperty(key)) {
+
+		  	// parse key to num and multiply by user's input
+		  	var subs = parseInt(key) * num;
+		  	
+		  	// add measurement and ingredient to updated number
+		  	var withMeasurement = subs + substitutes.egg[i][key];
+			
+			// add measurement to temp array
+			tempArray.push(withMeasurement); 
+		  	
+		  }
+		}
+
+		// add temp array to egg substitute array
+		eggSubstitutes.push(tempArray);
+
+	};
+
+	// return eggSubstitutes array
+	return formatResult(eggSubstitutes); // an array of egg substittues
+}
 
 
+function convertToButter (num, substitutes){
+	// create an array to hold all of the butter substitutes
+	var butterSubstitutes = [];
 
+	// loop through all of the butter substitutes
+	for (var i =  0; i < substitutes.butter.length; i++) {
+		
+		// create an array to store the groups of butter substitutes
+		var tempArray = [];
 
+		// loop through each group of substitutes
+		for (var key in substitutes.butter[i]) {
+		  
+		  
+			// checks if it has the key
+		  if (substitutes.butter[i].hasOwnProperty(key)) {
 
+		  	// parse key to num and multiply by user's input
+		  	var subs = parseInt(key) * num;
+		  	
+		  	// add measurement and ingredient to updated number
+		  	var withMeasurement = subs + substitutes.butter[i][key];
+			
+			// add measurement to temp array
+			tempArray.push(withMeasurement); 
+		  	
+		  }
+		}
+
+		// add temp array to butter substitute array
+		butterSubstitutes.push(tempArray);
+
+	};
+
+		//in the return we are calling formatResult which convert our array to a string and gives it back to us. That value we return to whoever calls convertToButter
+	return formatResult(butterSubstitutes);
+}
+
+function convertToMilk (num, substitutes){
+
+	// create an array to hold all of the milk substitutes
+	var milkSubstitutes = [];
+
+	// loop through all of the milk substitutes
+	for (var i =  0; i < substitutes.milk.length; i++) {
+		
+		// create an array to store the groups of substitutes
+		var tempArray = [];
+
+		// loop through each group of milk substitutes
+		for (var key in substitutes.milk[i]) {
+		  
+		  
+			// checks if it has the key
+		  if (substitutes.milk[i].hasOwnProperty(key)) {
+
+		  	// parse key to num and multiply by user's input
+		  	var subs = parseInt(key) * num;
+		  	
+		  	// add measurement and ingredient to updated number
+		  	var withMeasurement = subs + substitutes.milk[i][key];
+			
+			// add measurement to temp array
+			tempArray.push(withMeasurement); 
+		  	
+		  }
+		}
+
+		// add temp array to egg substitute array
+		milkSubstitutes.push(tempArray);
+
+	};
+	return formatResult(milkSubstitutes); // an array of milk subs
+}
+
+// Returns: the num in the input, the unit, and which ingredient it was
+// Called on line 87
+function calculateIngredients(){
+	var num = $("input.button-question").val();
+    var unit = $("select#select-measurement").val();
+    var ingredient = $("input[name='radio-button']:checked").val();
+
+    // if we are on eggs, also set the unit to eggs
+    if(ingredient === 'eggs') {
+    	unit = ingredient;
+    }
+
+    return [num, unit, ingredient];
+}
 

@@ -3,6 +3,7 @@
 	<head>
     	<meta charset="utf-8">
     	<meta name="Vegan Ingredient Converter" content="A tool to convert ingredients so that recipes can be made vegan">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Vegan Ingredient Converter</title>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,400,600,800' rel='stylesheet' type='text/css'>
@@ -41,18 +42,27 @@
 		</span>
 		</header>
 		<main>
-			<div id="submit-prompt">
+			<div class="container" id="submit-prompt">
 				What would you like to convert?
-				<div class="ingredients">
-					<p id="eggs" class="activate-search">
-						<input type="radio" value="eggs" name="radio-button">
-						<img src="images/egg-carton.png"></a></input></p>
-					<p id="butter" class="activate-search">
-						<input type="radio" value="butter" name="radio-button">
-						<img src="images/butter.png"></a></input></p>
-					<p id="milk" class="activate-search">
-						<input type="radio" value="milk" name="radio-button">
-						<img src="images/milk-carton.png"></a></input></p>
+				<div class="ingredients row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div id="eggs" class="activate-search">
+						<label style="display: inline;" for="test1">
+							<input type="radio" value="eggs" name="radio-button" id="test1" style="display:none;">
+							<img src="images/egg-carton.png"></a></input>
+						</label>
+					</div>
+					<div id="butter" class="activate-search">
+						<label style="display: inline;" for="test2">
+							<input type="radio" value="butter" name="radio-button" id="test2" style="display:none;">
+							<img src="images/butter.png"></a></input>
+						</label>
+					</div>
+					<div id="milk" class="activate-search">
+						<label style="display: inline;" for="test3">
+							<input type="radio" value="milk" name="radio-button" id="test3" style="display:none;">
+							<img src="images/milk-carton.png"></a></input>
+						</label>
+					</div>
 				<div>
 			</div>
 			<br>
@@ -63,8 +73,8 @@
 						<label for hidden="how-much"></label>
 						<input type="text"  class="button-question" name="howMuch" placeholder="How much?"></input>
 					</form>
-				<div>
-				<div>
+				<!-- <div>
+				<div> -->
 					<select id="select-measurement">
 							<option selected disabled hidden value=''>Select unit<option>
 
