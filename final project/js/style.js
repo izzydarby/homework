@@ -133,14 +133,20 @@ function convertToTablespoons (unit, value) {
 	return Math.round(result);
 }
 
+// function convertBackToUnit (unit, value) {
+// 	//convert the unit back to what it originally was
+
+
+// }
+
 function formatResult (array){
 	var conversionResult='';
 	for (var i = 0; i < array.length; i++){
 		conversionResult += "<br />" + array[i] + "<br />" + "<span>or</span>" + "<br />";
 	}
+
 	return conversionResult;
 }
-
 
 function convertToEggs(num, substitutes){
 
@@ -178,7 +184,7 @@ function convertToEggs(num, substitutes){
 		eggSubstitutes.push(tempArray);
 
 	};
-
+	console.log(eggSubstitutes);
 	// return eggSubstitutes array
 	return formatResult(eggSubstitutes); // an array of egg substittues
 }

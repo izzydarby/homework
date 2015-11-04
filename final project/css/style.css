@@ -66,8 +66,9 @@ header {
 }
 
 .activate-search:hover {
-	border: 2px solid red;
-	border-radius: 100px;
+	
+	/*border: 2px solid red;*/
+	/*border-radius: 100px;*/
 }
 
 #eggs {
