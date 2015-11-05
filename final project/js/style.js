@@ -72,17 +72,18 @@ $(document).ready(function(){
 //store what substitutes to use later on
 var substitutes = {
 	egg: [
+		//these are all in tablespoons
 		{ 
-			"1": " tablespoon(s) flax seed",
-			"3": " tablespoons water"
+			"1": "flax seed",
+			"3": "water"
 		},
 		{
-			"3": " tablespoons applesauce or pureed fruit, such as banana"
+			"3": "applesauce or pureed fruit, such as banana"
 		},
-		{	"3": " tablespoons aquafaba (aka chickpea liquid)"
+		{	"3": " aquafaba (aka chickpea liquid)"
 
 		},
-		{	"2": " tablespoons potato starch"
+		{	"2": " potato starch"
 
 		}
 
@@ -90,27 +91,27 @@ var substitutes = {
 
 	milk: [
 		{
-			"1":" tablespoon(s) almond milk, coconut milk, hemp milk, etc"
+			"1":" almond milk, coconut milk, hemp milk, etc"
 		},	
 
 		{
-			"1":" tablespoon(s) full-fat soy milk (replacing whole milk)"
+			"1":"full-fat soy milk (replacing whole milk)"
 		},
 		{
-			"1": " tablespoon(s) water"
+			"1": "water"
 		}
 		
 		],
 
 	butter: [
 		{
-			"1":" tablespoon(s) solid coconut oil"
+			"1":"solid coconut oil"
 		},
 		{
-			"1":" tablespoon(s) Earth Balance or other vegan shortening (cookies and pie crusts)"
+			"1":"Earth Balance or other vegan shortening (cookies and pie crusts)"
 		},
 		{
-			"1":" tablespoon(s) olive oil (in spicy baking, like gingerbread)"
+			"1":" olive oil (in spicy baking, like gingerbread)"
 		},
 
 		],
@@ -129,15 +130,31 @@ function convertToTablespoons (unit, value) {
 	if (unit === "cups") {
 		result = value * 16;
 	}
+	if (unit === "tablespoons") {
+		result = value;
+	}
 
 	return Math.round(result);
 }
 
-// function convertBackToUnit (unit, value) {
-// 	//convert the unit back to what it originally was
+function convertBackToUnit (unit, value) {
+	//convert the unit back to what it originally was
+	var result;
+	if (unit === "teaspoons") {
+		result = value * 3;
+	}
+	//if it's cups do something
+	if (unit === "cups") {
+		result = value / 16;
+	}
 
+	if (unit === "tablespoons") {
+		result = value;
+	}
 
-// }
+	return Math.round(result);
+
+}
 
 function formatResult (array){
 	var conversionResult='';
@@ -172,7 +189,7 @@ function convertToEggs(num, substitutes){
 		  	var subs = parseInt(key) * num;
 		  	
 		  	// add measurement and ingredient to updated number
-		  	var withMeasurement = subs + substitutes.egg[i][key];
+		  	var withMeasurement = subs + "tablespoons" + substitutes.egg[i][key];
 			
 			// add measurement to temp array
 			tempArray.push(withMeasurement); 
@@ -209,9 +226,14 @@ function convertToButter (num, substitutes){
 
 		  	// parse key to num and multiply by user's input
 		  	var subs = parseInt(key) * num;
+
+		  	var originalUserInput= calculateIngredients();	
+
+		  	//this variable will be the converted number (e.g. I input 6 cups milk - this will convert the tablespoons conversion back to the original cups unit)
+		  	var convertedNumber =convertBackToUnit(originalUserInput[1], subs);
 		  	
 		  	// add measurement and ingredient to updated number
-		  	var withMeasurement = subs + substitutes.butter[i][key];
+		  	var withMeasurement = convertedNumber + originalUserInput[1] + substitutes.butter[i][key];
 			
 			// add measurement to temp array
 			tempArray.push(withMeasurement); 
@@ -249,9 +271,14 @@ function convertToMilk (num, substitutes){
 		  	// parse key to num and multiply by user's input
 		  	var subs = parseInt(key) * num;
 		  	
+		  	var originalUserInput= calculateIngredients();	
+
+		  	//this variable will be the converted number (e.g. I input 6 cups milk - this will convert the tablespoons conversion back to the original cups unit)
+		  	var convertedNumber =convertBackToUnit(originalUserInput[1], subs);
+		  	
 		  	// add measurement and ingredient to updated number
-		  	var withMeasurement = subs + substitutes.milk[i][key];
-			
+		  	var withMeasurement = convertedNumber + originalUserInput[1] + substitutes.milk[i][key];
+		
 			// add measurement to temp array
 			tempArray.push(withMeasurement); 
 		  	
