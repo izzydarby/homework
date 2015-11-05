@@ -13,11 +13,18 @@ $(document).ready(function(){
 		var icon = $(this).attr('id');
 		
 		$('#search-box').removeClass('hide');
-		$('.activate-search').fadeTo( "slow", 0.33 );
-
-	
-	
 		$('.button-question').val('');
+		
+		//when you select one of the icons, the other two fade
+		$(".activate-search").css("opacity", 1);
+		$(".activate-search").not(this).fadeTo("slow", 0.20);
+		//when you select an icon for the second time, clear the output from round 1
+		$(".results-box").html(" ");
+		//when you click, scroll to the input area
+	
+		$('html, body').animate({
+        scrollTop: $(".results-box").offset().top
+   		 }, 1000);
 
 
 		//if the icon is eggs, ask the question how many. if it's milk or butter, ask how much
@@ -38,6 +45,10 @@ $(document).ready(function(){
 	// Step 2: Submit button click
 	$('#submit-btn').click(function(event) {
 		event.preventDefault();
+		//animate upon submit button click
+		$('html, body').animate({
+        scrollTop: $(".results-box").offset().top
+   		 }, 2000);
 
 		//get the value of the input text
 		//if the select dropdown isn't hidden you have to get that value
@@ -89,16 +100,16 @@ var substitutes = {
 	egg: [
 		//these are all in tablespoons
 		{ 
-			"1": " flax seed",
+			" 1 ": " flax seed",
 			" 3 ": " water"
 		},
 		{
-			"3 ": " applesauce or pureed fruit, such as banana"
+			" 3 ": " applesauce or pureed fruit, such as banana"
 		},
-		{	"3 ": " aquafaba (aka chickpea liquid)"
+		{	" 3 ": " aquafaba (aka chickpea liquid)"
 
 		},
-		{	"2 ": " potato starch"
+		{	" 2 ": " potato starch"
 
 		}
 
@@ -106,27 +117,27 @@ var substitutes = {
 
 	milk: [
 		{
-			"1 ":" almond milk, coconut milk, hemp milk, etc"
+			" 1 ":" almond milk, coconut milk, hemp milk, etc"
 		},	
 
 		{
-			"1 ":" full-fat soy milk (replacing whole milk)"
+			" 1 ":" full-fat soy milk (replacing whole milk)"
 		},
 		{
-			"1 ": " water"
+			" 1 ": " water"
 		}
 		
 		],
 
 	butter: [
 		{
-			"1":" solid coconut oil"
+			" 1 ":" solid coconut oil"
 		},
 		{
-			"1 ":" Earth Balance or other vegan shortening (cookies and pie crusts)"
+			" 1 ":" Earth Balance or other vegan shortening (cookies and pie crusts)"
 		},
 		{
-			"1 ":" olive oil (in spicy baking, like gingerbread)"
+			" 1 ":" olive oil (in spicy baking, like gingerbread)"
 		},
 
 		],
@@ -204,7 +215,7 @@ function convertToEggs(num, substitutes){
 		  	var subs = parseInt(key) * num;
 		  	
 		  	// add measurement and ingredient to updated number
-		  	var withMeasurement = subs + " tablespoons" + substitutes.egg[i][key];
+		  	var withMeasurement = subs + " tablespoons " + substitutes.egg[i][key];
 			
 			// add measurement to temp array
 			tempArray.push(withMeasurement); 
