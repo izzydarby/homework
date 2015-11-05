@@ -7,13 +7,16 @@ $(document).ready(function(){
 
 	});
 
-
 	// BEGIN TOOL
 	// Step 1: On click of icons, show search button and reset question value
 	$('.activate-search').click(function(e) {
 		var icon = $(this).attr('id');
 		
 		$('#search-box').removeClass('hide');
+		$('.activate-search').fadeTo( "slow", 0.33 );
+
+	
+	
 		$('.button-question').val('');
 
 
@@ -30,6 +33,8 @@ $(document).ready(function(){
 	});
 
 
+
+
 	// Step 2: Submit button click
 	$('#submit-btn').click(function(event) {
 		event.preventDefault();
@@ -43,6 +48,8 @@ $(document).ready(function(){
 		var selectedIngredient = result[2];
 		var selectedUnit = result[1];
 		var selectedValue = result[0];
+		
+		var selectedValueParseInt = parseInt(result[0]);
 
 		console.log(selectedValue, selectedUnit, selectedIngredient);
 
@@ -54,18 +61,26 @@ $(document).ready(function(){
 			selectedUnit = 'tablespoons';
 		}
 
+		console.log(selectedValueParseInt);
 
-		if (isNaN(selectedValue) === true) {
+		if (isNaN (selectedValueParseInt) === true) {
 			$('.results-box').text("please enter a number");
 			$('.results-box').css('color','red');
 
-		} else if (selectedIngredient === 'eggs') {
+
+		return;
+		} 
+
+
+		if (selectedIngredient === 'eggs') {
 		 	$('.results-box').html(convertToEggs(selectedValue, substitutes));
 		} else if (selectedIngredient === 'milk') {
 			$('.results-box').html(convertToMilk(selectedValue, substitutes));
 		} else {
 			$('.results-box').html(convertToButter(selectedValue, substitutes));
 		}
+
+		$('.results-box').css('color','black');
 
 });
 
@@ -74,16 +89,16 @@ var substitutes = {
 	egg: [
 		//these are all in tablespoons
 		{ 
-			"1": "flax seed",
-			"3": "water"
+			"1": " flax seed",
+			" 3 ": " water"
 		},
 		{
-			"3": "applesauce or pureed fruit, such as banana"
+			"3 ": " applesauce or pureed fruit, such as banana"
 		},
-		{	"3": " aquafaba (aka chickpea liquid)"
+		{	"3 ": " aquafaba (aka chickpea liquid)"
 
 		},
-		{	"2": " potato starch"
+		{	"2 ": " potato starch"
 
 		}
 
@@ -91,27 +106,27 @@ var substitutes = {
 
 	milk: [
 		{
-			"1":" almond milk, coconut milk, hemp milk, etc"
+			"1 ":" almond milk, coconut milk, hemp milk, etc"
 		},	
 
 		{
-			"1":"full-fat soy milk (replacing whole milk)"
+			"1 ":" full-fat soy milk (replacing whole milk)"
 		},
 		{
-			"1": "water"
+			"1 ": " water"
 		}
 		
 		],
 
 	butter: [
 		{
-			"1":"solid coconut oil"
+			"1":" solid coconut oil"
 		},
 		{
-			"1":"Earth Balance or other vegan shortening (cookies and pie crusts)"
+			"1 ":" Earth Balance or other vegan shortening (cookies and pie crusts)"
 		},
 		{
-			"1":" olive oil (in spicy baking, like gingerbread)"
+			"1 ":" olive oil (in spicy baking, like gingerbread)"
 		},
 
 		],
@@ -134,7 +149,7 @@ function convertToTablespoons (unit, value) {
 		result = value;
 	}
 
-	return Math.round(result);
+	return (result);
 }
 
 function convertBackToUnit (unit, value) {
@@ -189,7 +204,7 @@ function convertToEggs(num, substitutes){
 		  	var subs = parseInt(key) * num;
 		  	
 		  	// add measurement and ingredient to updated number
-		  	var withMeasurement = subs + "tablespoons" + substitutes.egg[i][key];
+		  	var withMeasurement = subs + " tablespoons" + substitutes.egg[i][key];
 			
 			// add measurement to temp array
 			tempArray.push(withMeasurement); 
