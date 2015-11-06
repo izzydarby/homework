@@ -24,7 +24,7 @@ $(document).ready(function(){
 	
 		$('html, body').animate({
         scrollTop: $(".results-box").offset().top
-   		 }, 1000);
+   		 }, 2000);
 
 
 		//if the icon is eggs, ask the question how many. if it's milk or butter, ask how much
@@ -46,6 +46,7 @@ $(document).ready(function(){
 	$('#submit-btn').click(function(event) {
 		event.preventDefault();
 		//animate upon submit button click
+		
 		$('html, body').animate({
         scrollTop: $(".results-box").offset().top
    		 }, 2000);
@@ -82,6 +83,7 @@ $(document).ready(function(){
 		return;
 		} 
 
+		
 
 		if (selectedIngredient === 'eggs') {
 		 	$('.results-box').html(convertToEggs(selectedValue, substitutes));
@@ -117,11 +119,16 @@ var substitutes = {
 
 	milk: [
 		{
-			" 1 ":" almond milk, coconut milk, hemp milk, etc"
+			" 1 ":" almond milk (recommended) "
 		},	
 
 		{
-			" 1 ":" full-fat soy milk (replacing whole milk)"
+			" 1 ":" coconut milk, hemp milk, rice milk"
+		},	
+
+
+		{
+			" 1 ":" full-fat soy milk or canned coconut milk (replacing whole milk)"
 		},
 		{
 			" 1 ": " water"
@@ -183,12 +190,16 @@ function convertBackToUnit (unit, value) {
 }
 
 function formatResult (array){
-	var conversionResult='';
+	var conversionResult= [];
 	for (var i = 0; i < array.length; i++){
-		conversionResult += "<br />" + array[i] + "<br />" + "<span>or</span>" + "<br />";
+		conversionResult.push(array[i])
+		// conversionResult += "<br />" + array[i] + "<br />" + "<span>or</span>" + "<br />";
 	}
 
-	return conversionResult;
+	var stringResult = conversionResult.join("<br> or <br>")
+	console.log(stringResult);
+
+	return stringResult;
 }
 
 function convertToEggs(num, substitutes){
@@ -259,7 +270,7 @@ function convertToButter (num, substitutes){
 		  	var convertedNumber =convertBackToUnit(originalUserInput[1], subs);
 		  	
 		  	// add measurement and ingredient to updated number
-		  	var withMeasurement = convertedNumber + originalUserInput[1] + substitutes.butter[i][key];
+		  	var withMeasurement = convertedNumber + " " + originalUserInput[1] + substitutes.butter[i][key];
 			
 			// add measurement to temp array
 			tempArray.push(withMeasurement); 
@@ -303,7 +314,7 @@ function convertToMilk (num, substitutes){
 		  	var convertedNumber =convertBackToUnit(originalUserInput[1], subs);
 		  	
 		  	// add measurement and ingredient to updated number
-		  	var withMeasurement = convertedNumber + originalUserInput[1] + substitutes.milk[i][key];
+		  	var withMeasurement = convertedNumber + " " + originalUserInput[1] + substitutes.milk[i][key];
 		
 			// add measurement to temp array
 			tempArray.push(withMeasurement); 
