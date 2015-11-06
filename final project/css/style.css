@@ -93,8 +93,8 @@ h1 {
 
 #input {
 	display: inline-block;
-	width:25%;
-	height:30%;
+	width:20%;
+	height:40%;
 }
 
 textarea { 
@@ -118,13 +118,19 @@ input {
 	display: none;
 }
 
+select { 
+	text-indent: 5px; 
+
+}
+
 
 #select-measurement {
+	text-align: center;
 	display: inline-block;
 	-webkit-appearance:none;
 	font-size: 18px;
     padding: 5px;
-    text-align: center;
+    width: 58%;
     border-radius: 2px
 
 }

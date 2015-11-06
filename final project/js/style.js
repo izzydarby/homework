@@ -101,18 +101,35 @@ $(document).ready(function(){
 var substitutes = {
 	egg: [
 		//these are all in tablespoons
+		{
+			" 2 ": " corn starch", " 2": " water"
+		},
 		{ 
 			" 1 ": " flax seed",
 			" 3 ": " water"
 		},
+
 		{
-			" 3 ": " applesauce or pureed fruit, such as banana"
+			" 3 ": " applesauce or pureed fruit"
 		},
+		
+		{
+			" 3 ": " mashed banana"
+		},
+
 		{	" 3 ": " aquafaba (aka chickpea liquid)"
 
 		},
-		{	" 2 ": " potato starch"
+		{	"2 ": " potato starch", " 2 ": "water"
 
+		},
+
+		{
+ 			"2": "instant mashed potatoes"
+		},
+
+		{
+			"1": "baking soda", "2": "warm water [for leavening]"
 		}
 
 		],
@@ -163,11 +180,12 @@ function convertToTablespoons (unit, value) {
 	if (unit === "cups") {
 		result = value * 16;
 	}
-	if (unit === "tablespoons") {
-		result = value;
-	}
+	// if (unit === "tablespoons") {
+	// 	result = value;
+	// }
 
 	return (result);
+
 }
 
 function convertBackToUnit (unit, value) {
@@ -226,7 +244,7 @@ function convertToEggs(num, substitutes){
 		  	var subs = parseInt(key) * num;
 		  	
 		  	// add measurement and ingredient to updated number
-		  	var withMeasurement = subs + " tablespoons " + substitutes.egg[i][key];
+		  	var withMeasurement = " " + subs + " tablespoon(s) " + " " + substitutes.egg[i][key];
 			
 			// add measurement to temp array
 			tempArray.push(withMeasurement); 
