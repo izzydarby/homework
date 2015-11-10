@@ -39,11 +39,10 @@ h1 {
 
 .header-link {
 	  text-decoration: none;
-	  color: black;
 }
 
 .header-li:hover {
-	  background: #D0D0D0;
+	  background: #F4D35E;
 	  text-decoration: none;
 
 }
@@ -93,21 +92,22 @@ h1 {
 
 #input {
 	display: inline-block;
-	width:20%;
-	height:40%;
+	text-align: center;	
+	width: 20%;
+	height: 90px
+	border: 1px solid black;
+
 }
+
+input {
+	text-align: center;	
+
+}
+
+
 
 textarea { 
 	text-align: center; 
-}
-
-
-input {
-	text-align: center;
-	width: 50%;
-	height: 40px;
-	border: 1px solid black;
-
 }
 
 .error{
@@ -118,19 +118,17 @@ input {
 	display: none;
 }
 
-select { 
-	text-indent: 5px; 
-
-}
 
 
 #select-measurement {
+	text-indent: 25px; 
 	text-align: center;
 	display: inline-block;
 	-webkit-appearance:none;
-	font-size: 18px;
+	font-size: 17px;
     padding: 5px;
-    width: 58%;
+    width: 80%;
+    height:40px;
     border-radius: 2px
 
 }
@@ -154,11 +152,12 @@ select {
 }
 
 .button #submit-btn:hover {
-  background: #D0D0D0;
+  background: #F95738;
 }
 
 .button-question {
 	font-size:16px;
+	height:40px;
 
 }
 
@@ -167,6 +166,7 @@ select {
 	padding: 100px
 
 }
+
 
 .mobile-menu {
 	display: none;
