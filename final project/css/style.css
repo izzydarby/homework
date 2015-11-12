@@ -10,12 +10,21 @@ Front End Web Development General Assembly 2015 Boston
 
 	}
 
-h1 {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 500;
-	text-align: center;
+body {
+	background-image: url(http://veganizzm.com/wp-content/themes/veganizzm/img/21.jpg);
+	background-repeat: repeat;
 }
 
+header > .container {
+	width: 50%;
+	float: left;
+
+}
+
+header {
+	overflow: hidden;
+	width: 100%;
+}
 
 .header-li {
 	  float: left;
@@ -47,6 +56,15 @@ h1 {
 
 }
 
+#social-bar {
+	float:left;
+	padding: 10px;
+	width: 50%;
+}
+
+#social-bar ul li {
+	float: right;
+}
 
 #submit-prompt {
 	padding-top:25px;
@@ -54,6 +72,13 @@ h1 {
 	text-align:center;
 } 
 
+.logo {
+	clear: both;
+	width:50%;
+	margin: 0 auto;
+	display: block;
+
+}
 
 .ingredients img {
 	margin: 50px;

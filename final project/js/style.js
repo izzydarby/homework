@@ -140,12 +140,18 @@ var substitutes = {
 		},	
 
 		{
-			" 1 ":" coconut milk, hemp milk, rice milk"
+			" 1 ":" coconut milk"
 		},	
 
 
 		{
 			" 1 ":" full-fat soy milk or canned coconut milk (replacing whole milk)"
+		},
+		{
+			" 1 ": " hemp milk"
+		},
+		{
+			" 1 ": " rice milk"
 		},
 		{
 			" 1 ": " water"
@@ -163,6 +169,14 @@ var substitutes = {
 		{
 			" 1 ":" olive oil (in spicy baking, like gingerbread)"
 		},
+		{
+			" 1 ":" vegetable or canola oil"
+		},
+
+		{
+
+			" 1 ": " applesauce (for sweet baking)"
+		}
 
 		],
 };
